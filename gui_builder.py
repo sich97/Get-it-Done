@@ -10,7 +10,7 @@ class GidClientGUI:
         self.builder = builder = pygubu.Builder()
 
         # 2: Load an ui file
-        builder.add_from_file('gid-client-gui.ui')
+        builder.add_from_file('gid-client.ui')
 
         # 3: Create the mainwindow
         self.mainwindow = builder.get_object('Frame1')
