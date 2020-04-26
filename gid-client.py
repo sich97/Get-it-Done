@@ -13,21 +13,30 @@ and require a restart, there is a built-in kill-switch for the program (CTRL + A
 entirely on production releases.
 """
 
-
+import gui_builder
 from multiprocessing import Process
-
+import time
 
 KILL_SWITCH = True
 
-kill_signal = False
+run_signal = False
+
 environment_data = {}
-running_config = {}
+running_config = {"Duration hours": 0, "Duration minutes": 0, "Duration seconds": 0}
 
 
 def main():
     initialize()
+
+    # Starts the GUI as a parallel process
     gui_process = Process(target=gui)
     gui_process.start()
+
+    # Wait for signal to run the blocker
+    while not run_signal:
+        time.sleep(5)
+
+    blocker()
 
 
 def initialize():
@@ -58,7 +67,23 @@ def load_settings():
 
 # Change settings, start work session, see statistics, online ranking
 def gui():
-    print("gui not yet defined")
+    app = gui_builder.GidClientGUI()
+    app.run()
+
+
+def run_signal_changer(signal):
+    if signal == 0:
+        run_signal = False
+        return True
+    elif signal == 1:
+        run_signal = True
+        return True
+    else:
+        return False
+
+
+def blocker():
+    print("blocker not yet defined")
 
 
 if __name__ == '__main__':
