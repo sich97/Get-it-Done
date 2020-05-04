@@ -14,9 +14,8 @@ entirely on production releases.
 """
 
 
-import gui_builder
 from multiprocessing import Process
-import time
+import keyboard
 
 KILL_SWITCH = True
 
@@ -29,20 +28,21 @@ running_config = {"Duration hours": 0, "Duration minutes": 0, "Duration seconds"
 def main():
     initialize()
 
-    # Starts the GUI as a parallel process
-    gui_process = Process(target=gui)
-    gui_process.start()
-
-    # Wait for signal to run the blocker
     while not run_signal:
-        time.sleep(5)
-
-    blocker()
+        menu()
 
 
 def initialize():
     load_environment_data()
     load_settings()
+
+    if KILL_SWITCH:
+        # Adds hot-key for kill-switch
+        keyboard.add_hotkey("ctrl+shift+a", run_signal_changer(0))
+
+    # Starts the blocker as a separate process
+    blocker_process = Process(target=blocker())
+    blocker_process.start()
 
 
 # Stores info about the host machine in memory as a dictionary
@@ -66,25 +66,20 @@ def load_settings():
     print("load_settings not yet defined")
 
 
-# Change settings, start work session, see statistics, online ranking
-def gui():
-    app = gui_builder.GidClientGUI()
-    app.run()
-
-
-def run_signal_changer(signal):
-    if signal == 0:
-        run_signal = False
-        return True
-    elif signal == 1:
-        run_signal = True
-        return True
-    else:
-        return False
+def menu():
+    print("This is the menu")
 
 
 def blocker():
-    print("blocker not yet defined")
+    while run_signal:
+        print("Run signal is: " + str(run_signal))
+
+
+def run_signal_changer(new_state):
+    if new_state == 0:
+        run_signal = False
+    if new_state == 1:
+        run_signal = True
 
 
 if __name__ == '__main__':

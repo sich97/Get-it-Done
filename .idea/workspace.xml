@@ -22,6 +22,8 @@
     <list default="true" id="8b68c31f-39f7-4337-875a-72235a5373a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gid-client.py" beforeDir="false" afterPath="$PROJECT_DIR$/gid-client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gid-client.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_builder.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,8 @@
       <updated>1587853972561</updated>
       <workItem from="1587853988180" duration="4268000" />
       <workItem from="1587901602812" duration="1494000" />
-      <workItem from="1587907674511" duration="5325000" />
+      <workItem from="1587907674511" duration="6027000" />
+      <workItem from="1588626481711" duration="1716000" />
     </task>
     <servers />
   </component>
@@ -90,9 +93,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1737" y="146" width="1007" height="732" key="SettingsEditor" timestamp="1587908192412">
+    <state x="1737" y="146" width="1007" height="732" key="SettingsEditor" timestamp="1588628143855">
       <screen x="1280" y="0" width="1920" height="1080" />
     </state>
-    <state x="1737" y="146" width="1007" height="732" key="SettingsEditor/1280.0.1920.1080/0.0.1280.1024@1280.0.1920.1080" timestamp="1587908192412" />
+    <state x="1737" y="146" width="1007" height="732" key="SettingsEditor/1280.0.1920.1080/0.0.1280.1024@1280.0.1920.1080" timestamp="1588628143855" />
   </component>
 </project>
