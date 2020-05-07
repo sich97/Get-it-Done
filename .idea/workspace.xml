@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b68c31f-39f7-4337-875a-72235a5373a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gid-client.py" beforeDir="false" afterPath="$PROJECT_DIR$/gid-client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gid-client.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_builder.py" beforeDir="false" />
-    </list>
+    <list default="true" id="8b68c31f-39f7-4337-875a-72235a5373a6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +69,7 @@
       <workItem from="1587901602812" duration="1494000" />
       <workItem from="1587907674511" duration="6027000" />
       <workItem from="1588626481711" duration="1716000" />
+      <workItem from="1588869177534" duration="29000" />
     </task>
     <servers />
   </component>
