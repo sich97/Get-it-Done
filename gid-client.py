@@ -15,34 +15,71 @@ entirely on production releases.
 
 
 from multiprocessing import Process
-import keyboard
+import os
+from pynput import keyboard
+import time
 
 KILL_SWITCH = True
-
-run_signal = False
-
-environment_data = {}
-running_config = {"Duration hours": 0, "Duration minutes": 0, "Duration seconds": 0}
+COMBINATIONS = [
+    {keyboard.Key.shift, keyboard.KeyCode(char='a')},
+    {keyboard.Key.shift, keyboard.KeyCode(char='A')}
+]
 
 
 def main():
-    initialize()
+    print("Start of main")
 
+    running_config, run_signal, blocker_process = initialize()
+
+    print("Before starting menu")
     while not run_signal:
-        menu()
+        menu(running_config, run_signal)
 
 
 def initialize():
-    load_environment_data()
-    load_settings()
+    print("Creating run_signal")
+    run_signal = Signal("run_signal", True)
 
+    print("Loading settings")
+    # load_environment_data()
+    running_config = load_settings()
+
+    # Setting up the kill switch
     if KILL_SWITCH:
-        # Adds hot-key for kill-switch
-        keyboard.add_hotkey('ctrl+q', run_signal_changer(0))
+        print("Setting up kill switch")
+        kill_switch_process = Process(target=kill_switch(run_signal))
+        kill_switch_process.start()
 
     # Starts the blocker as a separate process
-    blocker_process = Process(target=blocker())
+    print("Starts the blocker process")
+    blocker_process = Process(target=blocker(running_config, run_signal))
     blocker_process.start()
+
+    print("End of initialization")
+    return running_config, run_signal, blocker_process
+
+
+def kill_switch(run_signal):
+    print("Start of kill switch")
+    current = set()
+
+    def on_press(key):
+        print("Key pressed")
+        if any([key in COMBO for COMBO in COMBINATIONS]):
+            current.add(key)
+            if any(all(k in current for k in COMBO) for COMBO in COMBINATIONS):
+                print("Hot-key detected")
+                print("Run signal was: " + str(run_signal.get_state()))
+                run_signal.set_state(False)
+                print("Run signal is now: " + str(run_signal.get_state()))
+
+    def on_release(key):
+        print("Key released")
+        if any([key in COMBO for COMBO in COMBINATIONS]):
+            current.remove(key)
+
+    with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+        listener.join()
 
 
 # Stores info about the host machine in memory as a dictionary
@@ -63,25 +100,51 @@ def get_machine_hardware():
 
 # Stores all settings from gid-client.conf in memory as a dictionary
 def load_settings():
-    print("load_settings not yet defined")
+    settings = {"Duration hours": 0, "Duration minutes": 0, "Duration seconds": 0}
+    return settings
 
 
-def menu():
-    print("This is the menu")
+def menu(running_config, run_signal):
+    # os.system('cls' if os.name == 'nt' else 'clear')
+    print_menu_options()
+    menu_choice = int(input("Please input the corresponding integer of your decision: "))
+    if menu_choice == 1:
+        run_signal.set_state(True)
+
+    if menu_choice == 2:
+        while not run_signal.get_state():
+            print("Test")
 
 
-def blocker():
-    while run_signal:
-        print("Run signal is: " + str(run_signal))
+def print_menu_options():
+    print("Welcome to the command-line for Get-it-Done!")
+    print("Here are some options for you:")
+    print("1:\tStart session\n")
+    print("2:\tTest\n")
 
 
-def run_signal_changer(new_state):
-    if new_state == 0:
-        print("Run signal changed to False")
-        run_signal = False
-    if new_state == 1:
-        print("Run signal changed to True")
-        run_signal = True
+def blocker(running_config, run_signal):
+    print("Start of blocker process")
+    while True:
+        print("Wait for 1 second")
+        time.sleep(1)
+        print("Checks run signal")
+        while run_signal.get_state():
+            print("Run signal is: " + str(run_signal.get_state()))
+
+
+class Signal:
+    def __init__(self, name, initial_state):
+        self.state = initial_state
+        self.name = name
+
+    def get_state(self):
+        return self.state
+
+    def set_state(self, new_state):
+        old_state = self.state
+        self.state = new_state
+        print(self.name + " was changed from " + str(old_state) + " to " + str(new_state))
 
 
 if __name__ == '__main__':

@@ -22,6 +22,22 @@
     <list default="true" id="8b68c31f-39f7-4337-875a-72235a5373a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gid-client.py" beforeDir="false" afterPath="$PROJECT_DIR$/gid-client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_canonical_names.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_darwinkeyboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_darwinmouse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_generic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_keyboard_event.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_keyboard_tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_mouse_event.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_mouse_tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_nixcommon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_nixkeyboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_nixmouse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_winkeyboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/_winmouse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/mouse.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +91,7 @@
       <workItem from="1588869177534" duration="29000" />
       <workItem from="1589543931813" duration="697000" />
       <workItem from="1589544653493" duration="69000" />
-      <workItem from="1589544749305" duration="1470000" />
+      <workItem from="1589544749305" duration="9387000" />
     </task>
     <servers />
   </component>
@@ -95,14 +111,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="609" y="187" width="1007" height="732" key="SettingsEditor" timestamp="1589544766836">
+    <state x="576" y="139" width="1007" height="732" key="SettingsEditor" timestamp="1589550115758">
       <screen x="0" y="0" width="2560" height="1380" />
     </state>
-    <state x="609" y="187" key="SettingsEditor/0.0.2560.1380@0.0.2560.1380" timestamp="1589544766836" />
+    <state x="576" y="139" key="SettingsEditor/0.0.2560.1380@0.0.2560.1380" timestamp="1589550115758" />
     <state x="1737" y="146" width="1007" height="732" key="SettingsEditor/1280.0.1920.1080/0.0.1280.1024@1280.0.1920.1080" timestamp="1588628143855" />
-    <state x="943" y="312" key="search.everywhere.popup" timestamp="1589544959318">
+    <state x="944" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1589551742541">
       <screen x="0" y="0" width="2560" height="1380" />
     </state>
-    <state x="943" y="312" key="search.everywhere.popup/0.0.2560.1380@0.0.2560.1380" timestamp="1589544959318" />
+    <state x="944" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1380@0.0.2560.1380" timestamp="1589551742541" />
   </component>
 </project>
