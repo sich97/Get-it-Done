@@ -38,7 +38,7 @@ def initialize():
 
     if KILL_SWITCH:
         # Adds hot-key for kill-switch
-        keyboard.add_hotkey("ctrl+shift+a", run_signal_changer(0))
+        keyboard.add_hotkey('ctrl+q', run_signal_changer(0))
 
     # Starts the blocker as a separate process
     blocker_process = Process(target=blocker())
@@ -77,8 +77,10 @@ def blocker():
 
 def run_signal_changer(new_state):
     if new_state == 0:
+        print("Run signal changed to False")
         run_signal = False
     if new_state == 1:
+        print("Run signal changed to True")
         run_signal = True
 
 
